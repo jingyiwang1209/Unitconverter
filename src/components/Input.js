@@ -1,15 +1,15 @@
 import React from "react";
 
-const InputA = props => {
+const Input = props => {
     return (
         <input
             type="text"
             onChange={e => {
-                props.onChange(e.target.value, "A");
+                props.onChange(e.target.value);
             }}
             value={props.value}
         />
     );
 };
 
-export default InputA;
+export default Input;

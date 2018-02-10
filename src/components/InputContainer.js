@@ -1,44 +1,51 @@
 import React, { Component } from "react";
-import InputA from "./InputA";
-import InputB from "./InputB";
+import Input from "./Input";
 import { fToC, cToF } from "../utilities/convert";
 
 class InputContainer extends Component {
     state = {
         value: 0,
-        inputNameTracker: "",
-        buttonClickTrackerForA: "",
-        buttonClickTrackerForB:"",
+        unitTracker: "",
     };
-    handleInput(value, name) {
+    handleInputF(value) {
         this.setState({
             value,
-            inputNameTracker: name
+            unitTracker: 'F'
+        });
+    }
+
+    handleInputC(value) {
+        this.setState({
+            value,
+            unitTracker: 'C'
         });
     }
 
     render() {
-        let valueForA;
-        let valueForB;
-        if (this.state.inputNameTracker === "A") {
-            valueForA = this.state.value;
-            valueForB = fToC(valueForA);
-        } else if (this.state.inputNameTracker === "B") {
-            valueForB = this.state.value;
-            valueForA = cToF(valueForB);
-        }
+        let valueForF;
+        let valueForC;
+       if(this.state.unitTracker === 'F'){
+         valueForF = this.state.value;
+         valueForC = fToC(valueForF);
+       }
+       if(this.state.unitTracker === 'C'){
+         valueForC = this.state.value;
+         valueForF = cToF(this.state.value);
+
+       }
+
         return (
             <div className="inputContainer">
                <div>
-                <InputA
-                    onChange={(value, name) => this.handleInput(value, name)}
-                    value={valueForA}
+                <Input
+                    onChange={(value) => this.handleInputF(value)}
+                    value={valueForF}
                 /> Fahrenheit
                 </div>
                 <div>
-                <InputB
-                    onChange={(value, name) => this.handleInput(value, name)}
-                    value={valueForB}
+                <Input
+                    onChange={(value) => this.handleInputC(value)}
+                    value={valueForC}
                 /> Celsius
                 </div>
             </div>
