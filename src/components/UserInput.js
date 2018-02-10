@@ -1,6 +1,6 @@
 import React from "react";
 
-const Input = props => {
+const UserInput = props => {
     return (
         <input
             type="text"
@@ -12,4 +12,4 @@ const Input = props => {
     );
 };
 
-export default Input;
+export default UserInput;

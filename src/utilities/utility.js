@@ -23,10 +23,10 @@ export const verifyInputData = (value)=>{
         return "";
     }
     return value;
-}
+};
 
 export const showValues = (sourceUnit, targetUnit, marker, value, sourceValue, targetValue)=>{
-     if (marker == "source") {
+     if (marker === "source") {
             if (sourceUnit === "Fahrenheit" && targetUnit === "Celsius") {
                 sourceValue = value;
                 targetValue = fToC(value);
@@ -39,7 +39,7 @@ export const showValues = (sourceUnit, targetUnit, marker, value, sourceValue, t
             }
         }
 
-        if (marker == "target") {
+        if (marker === "target") {
 
             if (sourceUnit === "Fahrenheit" && targetUnit === "Celsius") {
                 targetValue = value;

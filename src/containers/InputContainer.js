@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import Input from "../components/Input";
-import { fToC, cToF, inchToCm, cmToInch, verifyInputData, showValues } from "../utilities/convert";
+import UserInput from "../components/UserInput";
+import { verifyInputData, showValues } from "../utilities/utility";
 import SelectPanel from "../components/SelectPanel";
 
 class InputContainer extends Component {
     state = {
-        value: null,
+        value: "",
         sourceUnit: "Fahrenheit",
         targetUnit: "Celsius",
         marker: ""
@@ -18,7 +18,6 @@ class InputContainer extends Component {
     }
 
     handleInputTarget(value) {
-
         this.setState({
             value:verifyInputData(value),
             marker: "target"
@@ -48,10 +47,10 @@ class InputContainer extends Component {
         return (
             <div className="inputContainer">
                 <div>
-                    <Input
+                    <UserInput
                         onChange={value => this.handleInputSource(value)}
                         value={sourceValue}
-                    />{" "}
+                    />
                     <SelectPanel
                         values={["Fahrenheit", "inches"]}
                         onChange={value => {
@@ -60,10 +59,10 @@ class InputContainer extends Component {
                     />
                 </div>
                 <div>
-                    <Input
+                    <UserInput
                         onChange={value => this.handleInputTarget(value)}
                         value={targetValue}
-                    />{" "}
+                    />
                     <SelectPanel
                         values={["Celsius", "cm"]}
                         onChange={value => {
